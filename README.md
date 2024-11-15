@@ -45,4 +45,3 @@ locust -f locustfile.py
 - `create_user`: 로그인된 상태에서 `/users/create` 엔드포인트에 POST 요청을 보냅니다.
 - `update_user`: 로그인된 상태에서 `/users/1` 엔드포인트에 PUT 요청을 보냅니다.
 - `delete_user`: 로그인된 상태에서 `/users/{user_id}` 엔드포인트에 DELETE 요청을 보냅니다.
-```
