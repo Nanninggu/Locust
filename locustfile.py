@@ -87,6 +87,19 @@ class UserBehavior(TaskSet):
         else:
             print("로그인에 실패하여 작업을 수행할 수 없습니다.")  # ✅ 로그인되지 않은 상태에서 메시지를 출력합니다.
 
+    # 비동기 작업 테스트 (10% 확률로 실행) - async_process 메서드는 /async/process 엔드포인트에 GET 요청을 보냅니다.
+    @task(10)  # ✅ 이 코드는 Locust가 이 작업을 10% 확률로 수행하도록 설정합니다.
+    def async_process(self):  # ✅ 이 메서드는 /async/process 엔드포인트에 GET 요청을 보냅니다.
+        if self.logged_in:  # ✅ 사용자가 로그인된 상태인지 확인합니다.
+            response = self.client.get("/async/process",
+                                       headers={"accept": "*/*"})  # ✅ /async/process 주소로 GET 요청을 보냅니다.
+            if response.status_code == 200:  # ✅ 응답 코드가 200인지 확인합니다.
+                print("async_process 성공")  # ✅ "async_process 성공"이라는 메시지를 출력합니다.
+            else:
+                print(f"async_process 실패: {response.status_code}, {response.text}")  # ✅ 실패 메시지를 출력합니다.
+        else:
+            print("로그인에 실패하여 작업을 수행할 수 없습니다.")  # ✅ 로그인되지 않은 상태에서 메시지를 출력합니다.
+
 
 # WebsiteUser 클래스는 HttpUser를 상속받아 사용자 시뮬레이션을 정의합니다.
 class WebsiteUser(HttpUser):
