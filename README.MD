@@ -1,21 +1,8 @@
-다음은 주어진 코드를 기반으로 작성된 `README.md` 파일입니다:
-
-```markdown
-# 로드 테스트 스크립트
-
-이 프로젝트는 Locust를 사용하여 HTTP 서버의 로드 테스트를 수행하는 스크립트입니다.
-
-## 설치
-
-이 프로젝트를 실행하기 위해서는 Python과 Locust가 필요합니다. 다음 명령어를 사용하여 Locust를 설치할 수 있습니다:
-
-```bash
-pip install locust
-```
+다음은 주어진 코드를 기반으로 작성된 `README.md` 파일입니다.
 
 ## 사용법
 
-1. `locustfile.py` 파일을 실행합니다:
+1. `locustfile.py` 파일을 실행합니다.
 
 ```bash
 locust -f locustfile.py
